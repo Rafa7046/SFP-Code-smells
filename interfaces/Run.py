@@ -6,5 +6,5 @@ class Run():
     def set_command(self, command):
         self.slot = command
 
-    def Option_choice(self, employyes):
-        return self.slot.execute(employyes)
+    def Option_choice(self):
+        return self.slot.execute()

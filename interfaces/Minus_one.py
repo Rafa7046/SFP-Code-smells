@@ -5,5 +5,5 @@ class Finish(Command):
     def __init__(self, interface):
         self.interface = interface
 
-    def execute(self, employees):
-        return self.interface.option_minus_one(employees)
+    def execute(self):
+        return self.interface.option_minus_one()

@@ -43,7 +43,8 @@ class Syndicate:
     def total_fee(self, value):
         self._total_fee = value
 
-    def service_fee(self, value):
+    def service_fee(self):
+        value = int(input("Qual foi o valor da taxa: "))
         self.total_fee += value 
 
     def info_edit(self, reference):

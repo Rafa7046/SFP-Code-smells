@@ -13,9 +13,8 @@ from interfaces.two import Remove_Employee
 from interfaces.One import Add_Employee
 from interfaces.Run import Run
 
-list = [List_Employee(Interface), Add_Employee(Interface), Remove_Employee(Interface), Punch_Clock(Interface), Sell_Result(Interface), Service_Fee(Interface), Change_Info(Interface), Run_Payroll(Interface), Change_Paymet_Agenda(Interface), Create_Payment_Agenda(Interface), Undo_Redo(Interface), Finish(Interface)]
 
-def start(employees):
+def text():
     print("Selecione a opção desjeada")
     print("[0] Ver informações dos funcionários")
     print("[1] Adicionar um funcionário")
@@ -29,9 +28,14 @@ def start(employees):
     print("[9] Criar agenda de pagamento")
     print("[10] Desfazer ou refazer")
     print("[-1] Sair")
+
+def start(employees):
+
+    list = [List_Employee(Interface(employees)), Add_Employee(Interface(employees)), Remove_Employee(Interface(employees)), Punch_Clock(Interface(employees)), Sell_Result(Interface(employees)), Service_Fee(Interface(employees)), Change_Info(Interface(employees)), Run_Payroll(Interface(employees)), Change_Paymet_Agenda(Interface(employees)), Create_Payment_Agenda(Interface(employees)), Undo_Redo(Interface(employees)), Finish(Interface(employees))]
+    text()
     option = int(input(""))
     if option == -1: option = 11
     system_Function = list[option]
     run = Run()
     run.set_command(system_Function)
-    return run.Option_choice(employees)
+    return run.Option_choice()

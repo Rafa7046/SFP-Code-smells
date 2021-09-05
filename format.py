@@ -9,7 +9,6 @@ def load_changes(file):
     with open(file, 'rb') as input:
         return dill.load(input)
 
-
 def end_code():
     try:
         os.remove("data.pkl")

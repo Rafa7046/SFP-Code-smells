@@ -1,3 +1,4 @@
+from create_type_worker.Create_type import Create_Type
 from syndicate import Syndicate
 from utils import find_worker
 
@@ -15,7 +16,6 @@ class Employee:
         else:
             self.syndicate = "Funcionário não faz parte de nenehum sindicato."
         self.Id = Id
-        print("Foi adicionado o seguinte funcionário: ")
 
     @property
     def name(self):
@@ -49,14 +49,34 @@ class Employee:
     def Id(self, value):
         self._Id = value
 
-    def remove_employee(reference, employees):
-        to_remove = find_worker(reference, employees)
+    def add_employee(employees, list):     
+        name = input("Digite o nome do funcionário: ")
+        address = input("Digite o endereço do funcionário: ")
+        type_of_worker = int(input("Escolha o tipo do funcionário: \n[1] Hora\n[2] Mensal\n[3] Comissão\n"))
+        type_of_payment = input("Digite o método de pagamento de sua preferência: ")
+        syndicate = input("O funcionário faz parte de sindicatos? [sim] [nao]\n")
+        if syndicate.lower() == "sim":
+            syndicate = True
+        else:
+            syndicate = False
+        system_Function = list[type_of_worker]
+        run = Create_Type()
+        run.set_command(system_Function)
+        employees.append(run.create(name, address,type_of_payment, syndicate))
+
+        return employees
+
+    def remove_employee(employees):
+        removed = int(input("Digite o Id ou nome do funcionário que deseja remover: "))
+        to_remove = find_worker(removed, employees)
 
         if to_remove == None:
             print("Esse funcionário não existe")
         else:
             print(f"O funcionário {to_remove.name} com Id = {to_remove.Id} foi removido.\n")
             employees.remove(to_remove)
+        
+        return employees
 
     def edit_info(self):
         while True:
@@ -90,7 +110,9 @@ class Employee:
                 return 0
 
     def print_data(self):
+        print("")
         print(f"O nome do empregrado é {self.name} \nMora no endereço {self.address} \nÉ do tipo {self.__class__.__name__} \nID = {self.Id}")
+        print("")
 
     def delete(self):
         del self

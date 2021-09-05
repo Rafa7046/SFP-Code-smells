@@ -1,4 +1,4 @@
-# Sistema de Folha de Pagamento 
+# Sistema de Folha de Pagamento - Refactor
 
 __**Descrição**__
 
@@ -10,9 +10,11 @@ __**Bibliotecas**__
   Foram utilizadas bibliotecas nativas do python sendo elas: os, random e calendar
   e também utilizada a biblioteca externa dill
   
-  __**Funcionalidades**__
+  __**Smells**__
   
-- [x] Adição de um empregado
+- [x] Chain constructors:
+No arquivo payments, existem classes que com os construtores com trechos de códigos repetidos
+
 - [x] Remoção de um empregado
 - [x] Lançar um Cartão de Ponto
 - [x] Lançar um Resultado Venda

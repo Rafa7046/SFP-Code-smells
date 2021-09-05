@@ -48,7 +48,8 @@ class Hourly(Employee):
         def payment_agenda(self, value):
             self._payment_agenda = value
 
-    def time_cards(self, hours_worked):
+    def time_cards(self):
+        hours_worked = int(input("O funcionário trbalhou por quantas horas: "))
         if hours_worked > 8:
             self.money += (self.per_hour*8) + 1.5*self.per_hour*(hours_worked-8)
         else:
@@ -135,7 +136,8 @@ class Comission(Month):
     def comission_percent(self, value):
         self._comission_percent = value
 
-    def sell_results(self, value):
+    def sell_results(self):
+        value = int(input("Qual foi o valor da venda: "))
         self.money += (self.comission_percent*value)
 
     def paid(self):
