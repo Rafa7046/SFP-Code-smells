@@ -45,7 +45,8 @@ class Interface():
         self.employees = self.__backup()
 
         Id = int(input("Digite o Id do funcionário: "))
-        worker = find_worker(Id, self.employees).time_cards()
+        worker = find_worker(Id, self.employees)
+        worker.time_cards()
         print(f"Foi batido o ponto do funcionário {worker.name}")
 
         return self.employees
@@ -54,7 +55,8 @@ class Interface():
         self.employees = self.__backup()
 
         Id = int(input("Digite o Id do funcionário: "))
-        worker = find_worker(Id, self.employees).sell_results()
+        worker = find_worker(Id, self.employees)
+        worker.sell_results()
         print(f"Foi adicionado o valor da comissão ao funcionário {worker.name} com Id = {Id}")
 
         return self.employees
@@ -63,7 +65,8 @@ class Interface():
         self.employees = self.__backup()
 
         Id = int(input("Digite o Id do funcionário: "))
-        worker = find_worker(Id, self.employees).syndicate.service_fee()
+        worker = find_worker(Id, self.employees)
+        worker.syndicate.service_fee()
         print(f"Foi adicionado o valor da taxa de serviço ao funcionário {worker.name} com Id = {Id}")
 
         return self.employees
@@ -97,6 +100,8 @@ class Interface():
                 self.employees.remove(worker)
                 if input("Deseja alterar mais algum dado? [sim] [nao]\n") == "nao":
                     break
+            else:
+                break
         worker.print_data()
 
         return self.employees
